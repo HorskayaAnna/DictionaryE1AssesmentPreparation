@@ -29,11 +29,11 @@ namespace Dictionary
 
         public void Delete(U paramKey)
         {
-            if (!Key.Contains(paramKey))
+            if (Key.Contains(paramKey))
             {
                 int index = Array.IndexOf(Key, paramKey);
-                Array.Copy(Key, index + 1, Key, index, Count - index - 2);
-                Array.Copy(Value, index + 1, Value, index, Count - index - 2);
+                Array.Copy(Key, index + 1, Key, index, Count - 1 - index);
+                Array.Copy(Value, index + 1, Value, index, Count - 1 - index);
                 Count--;
             }
         }
